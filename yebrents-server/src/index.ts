@@ -1,4 +1,5 @@
 import express from 'express'
+import indexRoutes from './routes/index.routes'
 
 const app = express()
 
@@ -14,6 +15,9 @@ const FRONTEND_URL = process.env.ORIGIN || "http://localhost:3000";
 
 app.set("trust proxy", 1);
 
+
+app.use("/api", indexRoutes);
+
 // controls a very specific header to pass headers from the frontend
 app.use(
   cors({
@@ -21,12 +25,7 @@ app.use(
   })
 );
 
-app.get('/api', (_req, res) => {
-    console.log("Alguien anda por aqui")
-    res.send("Aqui tienes tu data")
-})
-
-
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
+
