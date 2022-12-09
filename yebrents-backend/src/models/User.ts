@@ -20,15 +20,9 @@ const userSchema = new Schema(
       type: String,
       required: true
     },
-    age: Number,
-    profileImage: {
-      type: String,
-      default:
-        'https://pixlok.com/wp-content/uploads/2021/03/default-user-profile-picture.jpg'
-    },
     role: {
       type: String,
-      enum: ['user', 'admin', 'moderators'],
+      enum: ['user', 'admin'],
       default: 'user'
     }
   },
